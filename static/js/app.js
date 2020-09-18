@@ -1,14 +1,21 @@
+// Use the D3 library to read in samples.json
+function init() {
+  // select dropdown menu 
+  var dropdown = d3.select("#selDataset");
 
+  // read the samples.json 
+  d3.json("samples.json").then((data)=> {
+      console.log(data)
 
-function populate_dropdown(){
-    var dropdown = d3.select("#selDataset")
-    d3.json("samples.json").then(function(data) {
-     var names = data.names;
-     names.forEach(element => {
-         dropdown.append("option").text(element).property("value", element)
-     });
-     optionChanged(names[0])
-   });
-   
- }
- populate_dropdown();
+      // get the id data to the dropdwown menu
+      data.names.forEach(function(name) {
+          dropdown.append("option").text(name).property("value");
+      });
+
+      // call the functions to display the data and the plots to the page
+      getPlots(data.names[0]);
+      getDemoInfo(data.names[0]);
+  });
+}
+
+init();
