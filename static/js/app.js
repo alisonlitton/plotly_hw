@@ -19,7 +19,7 @@ function getPlots(id) {
       x: sampleValues,
       y: OTU_id,
       text: labels,
-      marker: {color: ''},
+      marker: {color: 'pink'},
       type: "bar",
       orientation: "h",
     };
@@ -61,9 +61,9 @@ function getPlots(id) {
   Plotly.newPlot("bubble", data2, layout2);
   });}
 
-  // create the function to get the necessary data
+  // create the function to get the data
 function getDemoInfo(id) {
-  // read the json file to get data
+  // read the json 
       d3.json("samples.json").then((data1)=> {
   // get the metadata info for the demographic panel
           var metadata = data1.metadata;
@@ -78,7 +78,7 @@ function getDemoInfo(id) {
        // empty the demographic info panel each time before getting new id info
          demographicInfo.html("");
   
-       // grab the necessary demographic data data for the id and append the info to the panel
+       // grab the demographic data data for the id and append the info to the panel
           Object.entries(result).forEach((key) => {   
               demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");    
           });
