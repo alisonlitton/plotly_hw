@@ -24,7 +24,42 @@ function getPlots(id) {
       orientation: "h",
     };
 
-    
-  })
-};
+    //create variable for data 
+    var data1 = [trace1];
+    //set the layout for the bar chart
+    var layout = {
+      title: "Top 10 OTU(operational taxonomic units)",
+      yaxis: {tickmode:"linear"},
+      margin: {l:100, r:100, t:100, b:40}
+    };
+
+    //create the bar plot for the top 10 otu
+  Plotly.newPlot("bar", data1, layout);
+
+    //time for the bubble chart!
+    var trace2 ={
+      x: sampledata.samples[0].otu_ids,
+      y: sampledata.samples[0].sample_values,
+      mode: "markers",
+      marker: {
+        size: sampledata.samples[0].sample_values,
+        color: sampledata.samples[0].otu_ids},
+        text: sampledata.samples[0].otu_labels
+    };
+
+    //set the layout for the bubble chart 
+    var layout2 = {
+      xaxis: {title: "OTU ID"},
+      height:650, 
+      width: 1000
+    };
+
+    var data2 = [trace2];
+
+
+  //create the bubble plot! 
+  Plotly.newPlot("bubble", data2, layout2);
+  });}
+
+  
 
