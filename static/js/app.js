@@ -24,7 +24,7 @@ function getPlots(id) {
       orientation: "h",
     };
 
-    //create variable for data 
+    //create variable for data1 
     var data1 = [trace1];
     //set the layout for the bar chart
     var layout = {
@@ -53,11 +53,11 @@ function getPlots(id) {
       height:650, 
       width: 1000
     };
-
+    //create variable for data2
     var data2 = [trace2];
 
 
-  //create the bubble plot! 
+  //create the bubble plot!!
   Plotly.newPlot("bubble", data2, layout2);
   });}
 
@@ -70,7 +70,7 @@ function getDemoInfo(id) {
   
           console.log(metadata)
   
-        // filter meta data info by id
+        // filter metadata by id
          var result = metadata.filter(meta => meta.id.toString() === id)[0];
         // select demographic panel to put data
          var demographicInfo = d3.select("#sample-metadata");
