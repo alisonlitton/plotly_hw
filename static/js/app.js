@@ -19,7 +19,7 @@ function getPlots(id) {
       x: sampleValues,
       y: OTU_id,
       text: labels,
-      marker: {color: 'pink'},
+      marker: {color:'#FAA460'},
       type: "bar",
       orientation: "h",
     };
@@ -104,7 +104,7 @@ function getDemoInfo(id) {
               dropdown.append("option").text(name).property("value");
           });
   
-          // call the functions to display the data and the plots to the page
+          // call your functions to display the data and the plots to the page
           getPlots(data1.names[0]);
           getDemoInfo(data1.names[0]);
       });
